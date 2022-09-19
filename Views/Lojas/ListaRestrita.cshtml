@@ -1,0 +1,32 @@
+@model List<Avaliacao3BM.ViewModel.LojaViewModel>
+@{
+    ViewData["Title"] = "Lojas (admin)";
+}
+
+<h1 class="center">Lojas</h1>
+<hr>
+@if(Model.Count == 0)
+{
+    <p>Nenhuma Loja cadastrada</p>
+    <a href="/Cadastro/Cadastro"><button>Cadastrar Loja</button></a>
+} 
+else
+{
+    @foreach(var loja in Model)
+    {
+        <h3>Loja: @loja.Nome</h3>
+        <p>Id: @loja.Id</p>
+        <p>Piso: @loja.Piso</p>
+        <p>Descrição: @loja.Descricao</p>
+        <p>Tipo: @loja.Tipo</p>
+        <p>E-mail: @loja.Email</p>
+        <p>
+            <a href="/Lojas/Detalhes/@loja.Id"><button>Detalhes</button></a>
+            <form action="Excluir" method="post">
+                <button type="submit" name="id" value="@loja.Id">Excluir</button>
+            </form>
+        </p>
+        
+        <hr>
+    }
+}

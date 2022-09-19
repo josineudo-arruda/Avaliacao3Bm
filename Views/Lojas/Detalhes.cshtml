@@ -1,0 +1,17 @@
+@model Avaliacao3BM.ViewModel.LojaViewModel
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Loja: @Model.Nome</h1>
+<hr>
+<p>Id: @Model.Id</p>
+<p>Piso: @Model.Piso</p>
+<p>Descrição: @Model.Descricao</p>
+<p>Tipo: @Model.Tipo</p>
+<p>E-mail: @Model.Email</p>
+<form action="/Lojas/Excluir" method="post">
+    <button type="submit" name="Id" value="@Model.Id">Excluir</button>
+</form>
+<hr>
+
